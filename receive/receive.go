@@ -71,7 +71,7 @@ func sendFeedback(port *serial.Port, feedback string) error {
 func main() {
 	// 配置串口2
 	config := &serial.Config{
-		Name:        "/dev/ttyUSB0", // 替换为你的串口2名称
+		Name:        "com7", // 替换为你的串口2名称
 		Baud:        115200,
 		Parity:      serial.ParityNone,
 		ReadTimeout: 500 * time.Millisecond,
@@ -119,14 +119,10 @@ func main() {
 		lastDataTime = time.Now()
 
 		// 过滤非ASCII字符（只保留32-126和换行符10）
-		cleanData := make([]byte, 0, n)
-		for _, b := range data[:n] {
-			if (b >= 32 && b <= 126) || b == 10 {
-				cleanData = append(cleanData, b)
-			}
-		}
-		buffer.Write(cleanData)
-		log.Printf("接收到%d字节，清理后%d字节，缓冲区大小: %d，内容: %q (十六进制: %x)", n, len(cleanData), buffer.Len(), cleanData, cleanData)
+		buffer.Write(data[:n])
+		log.Printf("接收到 %d 字节，缓冲区大小: %d", n, buffer.Len())
+		// 如需调试原始内容，可以这样打印 hex
+		log.Printf("原始数据 (hex): %x", data[:n])
 
 		// 读取长度前缀
 		if expectedLength == 0 && buffer.Len() >= 4 {
