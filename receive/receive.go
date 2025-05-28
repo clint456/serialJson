@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"encoding/base64"
 	"encoding/binary"
 	"encoding/json"
 	"fmt"
@@ -178,15 +179,27 @@ func main() {
 				port.Flush()
 				continue
 			}
+			// 打印消息
+			log.Printf("接收并解析消息: %+v\n", message)
 
 			// 成功解析，发送确认
 			err = sendFeedback(port, "OK")
 			if err != nil {
 				log.Printf("发送确认失败: %v", err)
 			}
-
-			// 打印消息
-			log.Printf("接收并解析消息: %+v\n", message)
+			//如果解析成功，base64解包具体消息内容
+			payloadData, err := base64.StdEncoding.DecodeString(message.Payload)
+			if err != nil {
+				log.Printf("解码Payload失败: %v", err)
+				continue
+			}
+			var payload Payload
+			err = json.Unmarshal(payloadData, &payload)
+			if err != nil {
+				log.Printf("解析Payload失败: %v", err)
+				continue
+			}
+			log.Printf("解析的Payload: %+v\n", payload)
 
 			// 重置状态
 			buffer.Reset()
