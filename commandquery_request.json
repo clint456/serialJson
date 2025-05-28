@@ -1,0 +1,733 @@
+{
+    "apiVersion": "v3",
+    "requestId": "c24234c1-c9bc-4b0e-9a90-f94a7ba56c0a",
+    "statusCode": 200,
+    "totalCount": 6,
+    "deviceCoreCommands": [
+        {
+            "deviceName": "Random-Boolean-Device",
+            "profileName": "Random-Boolean-Device",
+            "coreCommands": [
+                {
+                    "name": "BoolArray",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Boolean-Device/BoolArray",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "BoolArray",
+                            "valueType": "BoolArray"
+                        }
+                    ]
+                },
+                {
+                    "name": "WriteBoolValue",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Boolean-Device/WriteBoolValue",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Bool",
+                            "valueType": "Bool"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_Bool",
+                            "valueType": "Bool"
+                        }
+                    ]
+                },
+                {
+                    "name": "WriteBoolArrayValue",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Boolean-Device/WriteBoolArrayValue",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "BoolArray",
+                            "valueType": "BoolArray"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_BoolArray",
+                            "valueType": "Bool"
+                        }
+                    ]
+                },
+                {
+                    "name": "Bool",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Boolean-Device/Bool",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Bool",
+                            "valueType": "Bool"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "deviceName": "Random-Binary-Device",
+            "profileName": "Random-Binary-Device",
+            "coreCommands": [
+                {
+                    "name": "Binary",
+                    "get": true,
+                    "path": "/api/v3/device/name/Random-Binary-Device/Binary",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Binary",
+                            "valueType": "Binary"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "deviceName": "Random-Integer-Device",
+            "profileName": "Random-Integer-Device",
+            "coreCommands": [
+                {
+                    "name": "WriteInt32ArrayValue",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Integer-Device/WriteInt32ArrayValue",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Int32Array",
+                            "valueType": "Int32Array"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_Int32Array",
+                            "valueType": "Bool"
+                        }
+                    ]
+                },
+                {
+                    "name": "Int64",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Integer-Device/Int64",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Int64",
+                            "valueType": "Int64"
+                        }
+                    ]
+                },
+                {
+                    "name": "Int64Array",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Integer-Device/Int64Array",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Int64Array",
+                            "valueType": "Int64Array"
+                        }
+                    ]
+                },
+                {
+                    "name": "Int16",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Integer-Device/Int16",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Int16",
+                            "valueType": "Int16"
+                        }
+                    ]
+                },
+                {
+                    "name": "Int16Array",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Integer-Device/Int16Array",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Int16Array",
+                            "valueType": "Int16Array"
+                        }
+                    ]
+                },
+                {
+                    "name": "WriteInt64Value",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Integer-Device/WriteInt64Value",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Int64",
+                            "valueType": "Int64"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_Int64",
+                            "valueType": "Bool"
+                        }
+                    ]
+                },
+                {
+                    "name": "WriteInt16ArrayValue",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Integer-Device/WriteInt16ArrayValue",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Int16Array",
+                            "valueType": "Int16Array"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_Int16Array",
+                            "valueType": "Bool"
+                        }
+                    ]
+                },
+                {
+                    "name": "Int8",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Integer-Device/Int8",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Int8",
+                            "valueType": "Int8"
+                        }
+                    ]
+                },
+                {
+                    "name": "Int8Array",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Integer-Device/Int8Array",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Int8Array",
+                            "valueType": "Int8Array"
+                        }
+                    ]
+                },
+                {
+                    "name": "WriteInt8Value",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Integer-Device/WriteInt8Value",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Int8",
+                            "valueType": "Int8"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_Int8",
+                            "valueType": "Bool"
+                        }
+                    ]
+                },
+                {
+                    "name": "WriteInt64ArrayValue",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Integer-Device/WriteInt64ArrayValue",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Int64Array",
+                            "valueType": "Int64Array"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_Int64Array",
+                            "valueType": "Bool"
+                        }
+                    ]
+                },
+                {
+                    "name": "Int32",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Integer-Device/Int32",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Int32",
+                            "valueType": "Int32"
+                        }
+                    ]
+                },
+                {
+                    "name": "Int32Array",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Integer-Device/Int32Array",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Int32Array",
+                            "valueType": "Int32Array"
+                        }
+                    ]
+                },
+                {
+                    "name": "WriteInt16Value",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Integer-Device/WriteInt16Value",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Int16",
+                            "valueType": "Int16"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_Int16",
+                            "valueType": "Bool"
+                        }
+                    ]
+                },
+                {
+                    "name": "WriteInt32Value",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Integer-Device/WriteInt32Value",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Int32",
+                            "valueType": "Int32"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_Int32",
+                            "valueType": "Bool"
+                        }
+                    ]
+                },
+                {
+                    "name": "WriteInt8ArrayValue",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Integer-Device/WriteInt8ArrayValue",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Int8Array",
+                            "valueType": "Int8Array"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_Int8Array",
+                            "valueType": "Bool"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "deviceName": "Random-Float-Device",
+            "profileName": "Random-Float-Device",
+            "coreCommands": [
+                {
+                    "name": "WriteFloat64ArrayValue",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Float-Device/WriteFloat64ArrayValue",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Float64Array",
+                            "valueType": "Float64Array"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_Float64Array",
+                            "valueType": "Bool"
+                        }
+                    ]
+                },
+                {
+                    "name": "Float32",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Float-Device/Float32",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Float32",
+                            "valueType": "Float32"
+                        }
+                    ]
+                },
+                {
+                    "name": "Float64",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Float-Device/Float64",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Float64",
+                            "valueType": "Float64"
+                        }
+                    ]
+                },
+                {
+                    "name": "Float32Array",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Float-Device/Float32Array",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Float32Array",
+                            "valueType": "Float32Array"
+                        }
+                    ]
+                },
+                {
+                    "name": "Float64Array",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Float-Device/Float64Array",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Float64Array",
+                            "valueType": "Float64Array"
+                        }
+                    ]
+                },
+                {
+                    "name": "WriteFloat32Value",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Float-Device/WriteFloat32Value",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Float32",
+                            "valueType": "Float32"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_Float32",
+                            "valueType": "Bool"
+                        }
+                    ]
+                },
+                {
+                    "name": "WriteFloat64Value",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Float-Device/WriteFloat64Value",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Float64",
+                            "valueType": "Float64"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_Float64",
+                            "valueType": "Bool"
+                        }
+                    ]
+                },
+                {
+                    "name": "WriteFloat32ArrayValue",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-Float-Device/WriteFloat32ArrayValue",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Float32Array",
+                            "valueType": "Float32Array"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_Float32Array",
+                            "valueType": "Bool"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "deviceName": "Random-UnsignedInteger-Device",
+            "profileName": "Random-UnsignedInteger-Device",
+            "coreCommands": [
+                {
+                    "name": "WriteUint8Value",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-UnsignedInteger-Device/WriteUint8Value",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Uint8",
+                            "valueType": "Uint8"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_Uint8",
+                            "valueType": "Bool"
+                        }
+                    ]
+                },
+                {
+                    "name": "WriteUint16Value",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-UnsignedInteger-Device/WriteUint16Value",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Uint16",
+                            "valueType": "Uint16"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_Uint16",
+                            "valueType": "Bool"
+                        }
+                    ]
+                },
+                {
+                    "name": "WriteUint16ArrayValue",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-UnsignedInteger-Device/WriteUint16ArrayValue",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Uint16Array",
+                            "valueType": "Uint16Array"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_Uint16Array",
+                            "valueType": "Bool"
+                        }
+                    ]
+                },
+                {
+                    "name": "Uint8",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-UnsignedInteger-Device/Uint8",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Uint8",
+                            "valueType": "Uint8"
+                        }
+                    ]
+                },
+                {
+                    "name": "Uint32",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-UnsignedInteger-Device/Uint32",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Uint32",
+                            "valueType": "Uint32"
+                        }
+                    ]
+                },
+                {
+                    "name": "Uint16Array",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-UnsignedInteger-Device/Uint16Array",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Uint16Array",
+                            "valueType": "Uint16Array"
+                        }
+                    ]
+                },
+                {
+                    "name": "WriteUint32ArrayValue",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-UnsignedInteger-Device/WriteUint32ArrayValue",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Uint32Array",
+                            "valueType": "Uint32Array"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_Uint32Array",
+                            "valueType": "Bool"
+                        }
+                    ]
+                },
+                {
+                    "name": "WriteUint64ArrayValue",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-UnsignedInteger-Device/WriteUint64ArrayValue",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Uint64Array",
+                            "valueType": "Uint64Array"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_Uint64Array",
+                            "valueType": "Bool"
+                        }
+                    ]
+                },
+                {
+                    "name": "WriteUint32Value",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-UnsignedInteger-Device/WriteUint32Value",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Uint32",
+                            "valueType": "Uint32"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_Uint32",
+                            "valueType": "Bool"
+                        }
+                    ]
+                },
+                {
+                    "name": "Uint8Array",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-UnsignedInteger-Device/Uint8Array",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Uint8Array",
+                            "valueType": "Uint8Array"
+                        }
+                    ]
+                },
+                {
+                    "name": "WriteUint64Value",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-UnsignedInteger-Device/WriteUint64Value",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Uint64",
+                            "valueType": "Uint64"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_Uint64",
+                            "valueType": "Bool"
+                        }
+                    ]
+                },
+                {
+                    "name": "WriteUint8ArrayValue",
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-UnsignedInteger-Device/WriteUint8ArrayValue",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Uint8Array",
+                            "valueType": "Uint8Array"
+                        },
+                        {
+                            "resourceName": "EnableRandomization_Uint8Array",
+                            "valueType": "Bool"
+                        }
+                    ]
+                },
+                {
+                    "name": "Uint16",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-UnsignedInteger-Device/Uint16",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Uint16",
+                            "valueType": "Uint16"
+                        }
+                    ]
+                },
+                {
+                    "name": "Uint64",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-UnsignedInteger-Device/Uint64",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Uint64",
+                            "valueType": "Uint64"
+                        }
+                    ]
+                },
+                {
+                    "name": "Uint32Array",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-UnsignedInteger-Device/Uint32Array",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Uint32Array",
+                            "valueType": "Uint32Array"
+                        }
+                    ]
+                },
+                {
+                    "name": "Uint64Array",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Random-UnsignedInteger-Device/Uint64Array",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "Uint64Array",
+                            "valueType": "Uint64Array"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "deviceName": "Uart-bles-Device",
+            "profileName": "Uart-ble-Device",
+            "coreCommands": [
+                {
+                    "name": "ble_init",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Uart-bles-Device/ble_init",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "ble_init",
+                            "valueType": "Bool"
+                        }
+                    ]
+                },
+                {
+                    "name": "ble_str",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Uart-bles-Device/ble_str",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "ble_str",
+                            "valueType": "String"
+                        }
+                    ]
+                },
+                {
+                    "name": "ble_json",
+                    "get": true,
+                    "set": true,
+                    "path": "/api/v3/device/name/Uart-bles-Device/ble_json",
+                    "url": "http://edgex-core-command:59882",
+                    "parameters": [
+                        {
+                            "resourceName": "ble_json",
+                            "valueType": "Object"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
