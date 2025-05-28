@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/binary"
 	"encoding/json"
+	"fmt"
 	"log"
 	"strings"
 	"time"
@@ -49,13 +50,28 @@ type Message struct {
 }
 
 func calculateCRC16(data []byte) uint16 {
-	return crc16.Checksum(data, &crc16.Table{})
+	table := crc16.MakeTable(crc16.CRC16_MODBUS)
+	if table == nil {
+		log.Fatal("无法生成CRC16表")
+	}
+	crc := crc16.Checksum(data, table)
+	log.Printf("CRC16 计算输入数据长度: %d, 校验和: %x", len(data), crc)
+	return crc
+}
+
+func sendFeedback(port *serial.Port, feedback string) error {
+	_, err := port.Write([]byte(feedback))
+	if err != nil {
+		return fmt.Errorf("发送反馈 %q 失败: %v", feedback, err)
+	}
+	log.Printf("发送反馈: %q", feedback)
+	return nil
 }
 
 func main() {
 	// 配置串口2
 	config := &serial.Config{
-		Name:        "/dev/ttyUSB0", // 替换为你的串口2名称，例如 /dev/ttyS1 (Linux) 或 COM2 (Windows)
+		Name:        "/dev/ttyUSB0", // 替换为你的串口2名称
 		Baud:        115200,
 		Parity:      serial.ParityNone,
 		ReadTimeout: 500 * time.Millisecond,
@@ -68,7 +84,9 @@ func main() {
 	}
 	defer port.Close()
 
-	log.Println("开始监听串口...")
+	// 清空串口缓冲区
+	port.Flush()
+	log.Println("串口缓冲区已清空，开始监听串口...")
 
 	// 缓冲区和读取逻辑
 	var buffer bytes.Buffer
@@ -76,6 +94,7 @@ func main() {
 	var expectedLength uint32
 	lastDataTime := time.Now()
 	timeout := 5 * time.Second // 超时时间
+	const maxLength = 10000    // 最大允许长度（10KB）
 
 	for {
 		// 读取串口数据
@@ -90,6 +109,8 @@ func main() {
 				log.Printf("接收超时，清空缓冲区（大小: %d）", buffer.Len())
 				buffer.Reset()
 				expectedLength = 0
+				_ = sendFeedback(port, "RETRY")
+				port.Flush()
 			}
 			continue
 		}
@@ -111,7 +132,17 @@ func main() {
 		if expectedLength == 0 && buffer.Len() >= 4 {
 			lengthBytes := buffer.Next(4)
 			expectedLength = binary.BigEndian.Uint32(lengthBytes)
-			log.Printf("读取到长度前缀: %d字节", expectedLength)
+			log.Printf("读取到长度前缀: %d字节（十六进制: %x）", expectedLength, lengthBytes)
+
+			// 验证长度前缀合理性
+			if expectedLength > maxLength || expectedLength == 0 {
+				log.Printf("长度前缀无效 (%d字节)，清空缓冲区并请求重传", expectedLength)
+				buffer.Reset()
+				expectedLength = 0
+				port.Flush()
+				_ = sendFeedback(port, "RETRY")
+				continue
+			}
 		}
 
 		// 检查是否收到完整数据包（长度+2字节CRC+换行符）
@@ -121,19 +152,15 @@ func main() {
 			crcBytes := buffer.Next(2)
 			receivedCRC := binary.BigEndian.Uint16(crcBytes)
 			calculatedCRC := calculateCRC16(dataPacket)
+			log.Printf("接收到的CRC: %x，计算的CRC: %x", receivedCRC, calculatedCRC)
 
 			// 验证CRC
 			if receivedCRC != calculatedCRC {
 				log.Printf("CRC校验失败，接收到的CRC: %x，计算的CRC: %x", receivedCRC, calculatedCRC)
-				// 发送重传请求
-				_, err := port.Write([]byte("RETRY"))
-				if err != nil {
-					log.Printf("发送重传请求失败: %v", err)
-				} else {
-					log.Println("发送重传请求: RETRY")
-				}
+				_ = sendFeedback(port, "RETRY")
 				buffer.Reset()
 				expectedLength = 0
+				port.Flush()
 				continue
 			}
 
@@ -149,24 +176,17 @@ func main() {
 			err = json.Unmarshal(dataPacket, &message)
 			if err != nil {
 				log.Printf("JSON解析失败: %v, 数据: %q (十六进制: %x)", err, dataPacket, dataPacket)
-				// 发送重传请求
-				_, err := port.Write([]byte("RETRY"))
-				if err != nil {
-					log.Printf("发送重传请求失败: %v", err)
-				} else {
-					log.Println("发送重传请求: RETRY")
-				}
+				_ = sendFeedback(port, "RETRY")
 				buffer.Reset()
 				expectedLength = 0
+				port.Flush()
 				continue
 			}
 
 			// 成功解析，发送确认
-			_, err = port.Write([]byte("OK"))
+			err = sendFeedback(port, "OK")
 			if err != nil {
 				log.Printf("发送确认失败: %v", err)
-			} else {
-				log.Println("发送确认: OK")
 			}
 
 			// 打印消息
@@ -175,6 +195,7 @@ func main() {
 			// 重置状态
 			buffer.Reset()
 			expectedLength = 0
+			port.Flush()
 		}
 
 		// 防止CPU过载
